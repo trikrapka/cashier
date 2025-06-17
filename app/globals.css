@@ -1,0 +1,16 @@
+/* Make sure this is in app/globals.css */
+
+@keyframes fade-out-and-up {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.5) translateY(-60px);
+  }
+}
+
+.animate-confetti {
+  animation: fade-out-and-up 1s ease-out forwards;
+}

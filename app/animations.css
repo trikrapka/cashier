@@ -1,0 +1,52 @@
+/* app/animations.css */
+
+/* Keyframe Animations */
+@keyframes screen-shake {
+    0%, 100% { transform: translate(0, 0); }
+    25% { transform: translate(5px, -5px); }
+    50% { transform: translate(-5px, 5px); }
+    75% { transform: translate(5px, 5px); }
+}
+
+@keyframes fly-out {
+    0% { transform: translate(0, 0) rotate(0deg); opacity: 1; }
+    100% { transform: translate(var(--tx, 0), var(--ty, -500px)) rotate(var(--rot, 0deg)); opacity: 0; }
+}
+
+@keyframes particle-burst {
+    0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+    100% { transform: translate(var(--tx), var(--ty)) scale(0); opacity: 0; }
+}
+
+/* Styles for the animated elements */
+.bill {
+    position: fixed;
+    width: 150px;
+    height: 70px;
+    background-color: #2E8540;
+    border: 2px solid #145A32;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 8px;
+    animation: fly-out forwards ease-out;
+    will-change: transform, opacity;
+    pointer-events: none;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    background-image: linear-gradient(45deg, rgba(255,255,255,0.1) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.1) 75%, transparent 75%, transparent);
+    background-size: 40px 40px;
+    z-index: 100;
+}
+
+.particle {
+    position: fixed;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: particle-burst forwards ease-out;
+    z-index: 100;
+}
